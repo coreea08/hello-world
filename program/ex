@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+template<typename T>
+
+class Stack
+{
+    vector <T> v;
+    public:
+        bool Empty() const;
+        void push(const T& ob);
+        const T& top() const
+        {
+            if(Empty()) throw "Stiva este goala!\n";
+            return v.back();
+        }
+        void pop();
+
+
+};
+
+template<typename T> bool Stack<T>::Empty() const
+{
+    return (v.empty());
+}
+
+template<typename T> void Stack<T>::push(const T& ob)
+{
+    v.push_back(ob);
+}
+
+template<typename T> void Stack<T>::pop()
+{
+    if(Empty()) throw "Stiva este goala!\n";
+    v.pop_back();
+}
+
+int main()
+{
+    Stack <int> a;
+    int n,x;
+    cout<<"Cate elemente doriti sa introduceti in stiva:"<<endl;
+    cin>>n;
+    for(int i = 1; i <= n; i++)
+    {
+        cout<<"introduceti un numar:";
+        cin>>x;
+        a.push(x);
+    }
+    while(!a.Empty())
+    {
+        cout<<a.top()<<"\n";
+        a.pop();
+    }
+    return 0;
+}
