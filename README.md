@@ -1,3 +1,3 @@
 # hello-world
 another repository
-this my new project
+this is my new project
